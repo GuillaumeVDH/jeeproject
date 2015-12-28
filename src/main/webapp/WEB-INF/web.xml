@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>Wich shelf ?</display-name>
+	
+	<!-- La page d'accueil est index.jsp -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- Déclaration de la Servlet Login -->
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>org.flst.servlets.Login</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddPlaylist</servlet-name>
+		<servlet-class>org.flst.servlets.AddPlaylist</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeletePlaylist</servlet-name>
+		<servlet-class>org.flst.servlets.DeletePlaylist</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Register</servlet-name>
+		<servlet-class>org.flst.servlets.Register</servlet-class>
+	</servlet>
+
+	<!-- La Servlet Login est liée à l'url /, et donc à index.jsp qui est page d'accueil -->
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AddPlaylist</servlet-name>
+		<url-pattern>/addplaylist</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DeletePlaylist</servlet-name>
+		<url-pattern>/deleteplaylist</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/register</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
