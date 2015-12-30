@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS jeeproject;
 GRANT ALL ON jeeproject.* TO 'jeeproject'@'localhost' IDENTIFIED BY 'jeeproject';
 
 CREATE TABLE IF NOT EXISTS jeeproject.shelfs(
-  id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (id)
 );
 
@@ -19,3 +19,5 @@ CREATE TABLE IF NOT EXISTS jeeproject.articles(
 );
 
 ALTER IGNORE TABLE jeeproject.articles ADD COLUMN name VARCHAR(256);
+
+INSERT INTO `jeeproject`.`shelfs` (`id`, `name`) VALUES ('', 'surgelés'), ('', 'fruits et légumes');
