@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS jeeproject.shelfs(
 ALTER IGNORE TABLE jeeproject.shelfs ADD COLUMN name VARCHAR(256);
 
 CREATE TABLE IF NOT EXISTS jeeproject.articles(
-  id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
   shelf INT NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (shelf) REFERENCES jeeproject.shelfs(id) ON DELETE CASCADE
@@ -21,3 +21,6 @@ CREATE TABLE IF NOT EXISTS jeeproject.articles(
 ALTER IGNORE TABLE jeeproject.articles ADD COLUMN name VARCHAR(256);
 
 INSERT INTO `jeeproject`.`shelfs` (`id`, `name`) VALUES ('', 'surgelés'), ('', 'fruits et légumes');
+INSERT INTO `jeeproject`.`articles` (`id`, `shelf`, `name`) VALUES ('', '1', 'steak'), ('', '1', 'petits poids');
+INSERT INTO `jeeproject`.`articles` (`id`, `shelf`, `name`) VALUES (NULL, '2', 'tomates'), (NULL, '2', NULL);
+
