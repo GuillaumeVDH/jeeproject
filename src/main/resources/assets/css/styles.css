@@ -109,7 +109,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
-.fixed-top{
+.fixed-top {
     position:fixed;
     top:0px;
     bottom:0px;
@@ -120,13 +120,13 @@ h1,h2,h3,h4,h5,h6{
     z-index:1030;
 }
 
-.tab-content .tab-pane{
+.tab-content .tab-pane {
     max-height:600px;
     position:relative;
     overflow:auto;
 }
 
-footer{
+footer {
     padding-top:40px;
     margin-top:40px;
     border-top:1px solid #dedede;
