@@ -3,13 +3,14 @@ package org.flst.dao;
 import org.flst.entity.Article;
 import org.flst.entity.Shelf;
 
+import javax.ejb.Stateless;
 import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by anthonycallaert on 19/12/2015.
  */
-public class ArticleDAOImpl implements ArticleDAO{
+public class ArticleDAOImpl implements ArticleDAO {
 
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jeeproject");
     private EntityManager entityManager = entityManagerFactory.createEntityManager();
