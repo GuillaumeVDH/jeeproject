@@ -1,11 +1,25 @@
-*target*
+######################
+# Java binaries
+######################
+*.class
 *.jar
 *.war
 *.ear
-*.class
-
-# eclipse specific git ignore
-*.pydevproject
+*.db
+######################
+# Directories
+######################
+target/
+generated-java/
+build/
+node/
+node_modules/
+**/bower_components/
+src/main/webapp/dist/
+out/
+######################
+# Eclipse
+######################
 .project
 .metadata
 bin/**
@@ -13,15 +27,23 @@ tmp/**
 tmp/**/*
 *.tmp
 *.bak
-*.swp
-*~.nib
-local.properties
 .classpath
 .settings/
-.loadpath
-
-# External tool builders
-.externalToolBuilders/
-
-# Locally stored "Eclipse launch configurations"
-*.launch
+######################
+# IntelliJ IDEA
+######################
+.idea/
+*.iml
+######################
+# Windows
+######################
+Thumbs.db
+Desktop.ini
+######################
+# OS X
+######################
+.DS_Store
+######################
+# SVN
+######################
+.svn/
