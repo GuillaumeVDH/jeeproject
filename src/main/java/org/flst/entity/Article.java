@@ -21,7 +21,7 @@ public class Article {
     private Shelf shelf;
 
     //default constructor
-    public Article(){
+    public Article() {
 
     }
 
@@ -52,7 +52,7 @@ public class Article {
 
     public void setShelf(Shelf shelf) {
         this.shelf = shelf;
-        if(!shelf.getArticles().contains(this)){
+        if(!shelf.getArticles().contains(this)){ //FIXME throw exception when it goes wrong
             shelf.getArticles().add(this);
         }
     }
