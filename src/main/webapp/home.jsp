@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: guillaumevdh
@@ -13,6 +14,11 @@
     <title>Home page</title>
 </head>
 <body>
+
+    <c:forEach items="${articles}" var="article">
+        <b>Test:</b> ${article.name}
+    </c:forEach>
+
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail" >

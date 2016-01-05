@@ -21,7 +21,7 @@ public class Article {
     private Shelf shelf;
 
     //default constructor
-    public Article(){
+    public Article() {
 
     }
 
