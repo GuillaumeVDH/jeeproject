@@ -4,10 +4,8 @@
              version="2.1">
     
 	<persistence-unit name="jeeproject" transaction-type="JTA">
-		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        
-        <class>org.flst.entity.Playlist</class>
-        <class>org.flst.entity.User</class>
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
         <properties>
@@ -16,7 +14,5 @@
             <property name="javax.persistence.jdbc.user" value="jeeproject" />
             <property name="javax.persistence.jdbc.password" value="jeeproject" />
         </properties>
-
     </persistence-unit>
-
 </persistence>

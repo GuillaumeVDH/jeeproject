@@ -5,19 +5,32 @@ import org.flst.entity.Article;
 import org.flst.entity.Shelf;
 import org.flst.utils.Factory;
 
+import javax.ejb.EJB;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
 import java.util.List;
 
 /**
  * Created by anthonycallaert on 21/12/2015.
  */
+
+@Remote
+@Stateless
 public class ArticleServices {
-    private ArticleDAO articleDAO = Factory.getArticleDAO();
+    @EJB
+    ArticleDAO articleDAO;
+
+//    private ArticleDAO articleDAO = Factory.getArticleDAO();
+
+    public List<Article> findAll() {
+        return articleDAO.findAll();
+    }
 
     public Article findById(int id){
         return articleDAO.findById(id);
     }
 
-    public List<Article> findByShelf(Shelf shelf) {
+    public List<Article> findByhelf(Shelf shelf) {
         return articleDAO.findByShelf(shelf);
     }
 

@@ -1,13 +1,17 @@
 package org.flst.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by anthonycallaert on 19/12/2015.
  */
 @Entity
 @Table(name = "articles")
-public class Article {
+@NamedQueries({
+        @NamedQuery(name = "findAll", query = "select a from Article a")
+})
+public class Article implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")

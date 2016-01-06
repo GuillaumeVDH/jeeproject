@@ -1,10 +1,13 @@
 package org.flst.servlets;
 
+import org.flst.dao.ArticleDAO;
+import org.flst.dao.ArticleDAOImpl;
 import org.flst.entity.Article;
 import org.flst.entity.Shelf;
 import org.flst.services.ArticleServices;
 import org.flst.services.ShelfRestService;
 
+import javax.ejb.EJB;
 import javax.jws.WebResult;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,29 +31,12 @@ public class Home extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 
         List<Article> articles = new ArrayList<>();
-        Shelf shelf = new Shelf();
 
-        shelf.setId(1);
-        shelf.setName("surgelés");
+        ArticleServices articleServices = new ArticleServices();
 
 
-        /*ArticleServices articleServices = new ArticleServices();
-        articles = articleServices.findByShelf(shelf);*/
-
-        Article article = new Article();
-        article.setId(99);
-        article.setName("Apéricube");
-//        shelf.addArticle(article);
-//        article.setShelf(shelf);
-
-        Article article2 = new Article();
-        article2.setId(100);
-        article2.setName("Jus de pommes");
-//        shelf.addArticle(article2);
-//        article2.setShelf(shelf);
-
-        articles.add(article);
-        articles.add(article2);
+        articles = articleServices.findAll();
+        System.out.println("SIZE OF THE LIST: " + articles.size());
 
         request.setAttribute("articles", articles);
         dispatcher.forward(request, response);

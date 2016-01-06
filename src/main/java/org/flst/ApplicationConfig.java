@@ -1,6 +1,5 @@
 package org.flst;
 
-import org.flst.services.ArticleRestService;
 import org.flst.services.ShelfRestService;
 
 import javax.ws.rs.ApplicationPath;
@@ -22,7 +21,6 @@ public class ApplicationConfig extends Application {
     public ApplicationConfig() {
         HashSet<Class<?>> c = new HashSet<>();
         c.add(ShelfRestService.class);
-        c.add(ArticleRestService.class);
 
         c.add(MessageBodyReader.class);
         c.add(MessageBodyWriter.class);
