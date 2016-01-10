@@ -23,13 +23,12 @@ public class ArticleDAOImpl implements ArticleDAO {
     /**
      * EntityManager of DAO
      */
-    @PersistenceContext(unitName = "jeeproject")
+    @PersistenceContext(unitName = "jeeproject", type = PersistenceContextType.EXTENDED)
     private EntityManager entityManager;
 
     @Override
     public Article findById(int id) {
         Article article = new Article();
-
 //        String sql = "select a from article a where a.id = :id";
 //        Query query = entityManager.createQuery(sql);
 //        query.setParameter("id", id);
@@ -39,15 +38,15 @@ public class ArticleDAOImpl implements ArticleDAO {
 //        } catch(NoResultException e){
 //            article = null;
 //        }
-
         return article;
     }
 
     @Override
     public List<Article> findAll() {
 //        TypedQuery<Article> query = em.createNamedQuery("findAll", Article.class);
-        Query query = entityManager.createNamedQuery("findAll");
-        entityManager.joinTransaction();
+//        Query query = entityManager.createNamedQuery("findAll");
+        Query query = entityManager.createQuery("SELECT * FROM articles");
+//        entityManager.joinTransaction();
         return query.getResultList();
     }
 

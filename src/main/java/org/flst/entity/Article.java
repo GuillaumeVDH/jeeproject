@@ -11,7 +11,7 @@ import java.io.Serializable;
 @NamedQueries({
         @NamedQuery(name = "findAll", query = "select a from Article a")
 })
-public class Article implements Serializable {
+public class Article implements  Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")

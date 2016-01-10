@@ -8,6 +8,8 @@ import org.flst.utils.Factory;
 import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
@@ -16,29 +18,37 @@ import java.util.List;
 
 @Remote
 @Stateless
-public class ArticleServices {
-    @EJB
-    ArticleDAO articleDAO;
+public class ArticleServices implements ArticleServicesItf{
+
+    @PersistenceContext(unitName = "jeeproject")
+    EntityManager em;
+
+//    @EJB
+//    ArticleDAO articleDAO;
 
 //    private ArticleDAO articleDAO = Factory.getArticleDAO();
 
     public List<Article> findAll() {
-        return articleDAO.findAll();
+        return em.createQuery("SELECT a FROM Article a").getResultList();
     }
 
-    public Article findById(int id){
-        return articleDAO.findById(id);
-    }
+//    public List<Article> findAll() {
+//        return articleDAO.findAll();
+//    }
 
-    public List<Article> findByhelf(Shelf shelf) {
-        return articleDAO.findByShelf(shelf);
-    }
-
-    public String createArticle(String name){
-        return articleDAO.createArticle(name);
-    }
-
-    public void deleteArticle(Article article){
-        articleDAO.deleteArticle(article);
-    }
+//    public Article findById(int id){
+//        return articleDAO.findById(id);
+//    }
+//
+//    public List<Article> findByhelf(Shelf shelf) {
+//        return articleDAO.findByShelf(shelf);
+//    }
+//
+//    public String createArticle(String name){
+//        return articleDAO.createArticle(name);
+//    }
+//
+//    public void deleteArticle(Article article){
+//        articleDAO.deleteArticle(article);
+//    }
 }
