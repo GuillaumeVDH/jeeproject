@@ -31,7 +31,8 @@ public class Home extends HttpServlet {
             Context context = new InitialContext();
 
 //            ArticleServiceItf articleServices = (ArticleServiceItf) context.lookup("ArticleService");
-            ArticleServiceItf articleServices = (ArticleServiceItf) context.lookup("java:global/which-shelf-0.0.1-SNAPSHOT/ArticleService");
+//            ArticleServiceItf articleServices = (ArticleServiceItf) context.lookup("java:global/jeeproject_EJB/ArticleService");
+            ArticleServiceItf articleServices = (ArticleServiceItf) context.lookup("java:global/ArticleService");
 
             List<Article> articles = articleServices.findAll();
             System.out.println("SIZE OF THE LIST: " + articles.size());

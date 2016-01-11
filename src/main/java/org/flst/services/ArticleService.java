@@ -2,6 +2,7 @@ package org.flst.services;
 
 import org.flst.entity.Article;
 
+import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -13,7 +14,8 @@ import java.util.List;
  */
 
 @Remote(ArticleServiceItf.class)
-@Stateless(name = "ArticleServices")
+@Stateless(name = "ArticleService")
+@EJB(name="java:global/ArticleService", beanInterface=ArticleServiceItf.class)
 public class ArticleService implements ArticleServiceItf {
 
     @PersistenceContext(unitName = "jeeproject")
