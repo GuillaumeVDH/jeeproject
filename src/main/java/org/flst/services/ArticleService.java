@@ -1,11 +1,7 @@
 package org.flst.services;
 
-import org.flst.dao.ArticleDAO;
 import org.flst.entity.Article;
-import org.flst.entity.Shelf;
-import org.flst.utils.Factory;
 
-import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,9 +12,9 @@ import java.util.List;
  * Created by anthonycallaert on 21/12/2015.
  */
 
-@Remote
-@Stateless
-public class ArticleServices implements ArticleServicesItf{
+@Remote(ArticleServiceItf.class)
+@Stateless(name = "ArticleServices")
+public class ArticleService implements ArticleServiceItf {
 
     @PersistenceContext(unitName = "jeeproject")
     EntityManager em;

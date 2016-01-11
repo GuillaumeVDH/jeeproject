@@ -9,6 +9,6 @@ import java.util.List;
  * Created by guillaumevdh on 06/01/16.
  */
 @Remote
-public interface ArticleServicesItf {
+public interface ArticleServiceItf {
     public List<Article> findAll();
 }
