@@ -10,5 +10,7 @@ import java.util.List;
  */
 @Remote
 public interface ArticleServiceItf {
-    public List<Article> findAll();
+    List<Article> findAll();
+
+    Article findArticleById(Integer id);
 }

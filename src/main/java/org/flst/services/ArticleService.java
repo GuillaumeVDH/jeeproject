@@ -22,22 +22,15 @@ public class ArticleService implements ArticleServiceItf {
     @PersistenceContext(unitName = "jeeproject")
     EntityManager em;
 
-//    @EJB
-//    ArticleDAO articleDAO;
-
-//    private ArticleDAO articleDAO = Factory.getArticleDAO();
-
+    @Override
     public List<Article> findAll() {
         return em.createQuery("SELECT a FROM Article a").getResultList();
     }
 
-//    public List<Article> findAll() {
-//        return articleDAO.findAll();
-//    }
-
-//    public Article findById(int id){
-//        return articleDAO.findById(id);
-//    }
+    @Override
+    public Article findArticleById(Integer id) {
+        return em.find(Article.class, id);
+    }
 //
 //    public List<Article> findByhelf(Shelf shelf) {
 //        return articleDAO.findByShelf(shelf);

@@ -22,6 +22,11 @@
 		<servlet-class>org.flst.servlets.Home</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>Product</servlet-name>
+		<servlet-class>org.flst.servlets.Product</servlet-class>
+	</servlet>
+
 	<!-- La Servlet Login est liée à l'url /, et donc à index.jsp qui est page d'accueil -->
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
@@ -31,6 +36,11 @@
 	<servlet-mapping>
 		<servlet-name>Home</servlet-name>
 		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Product</servlet-name>
+		<url-pattern>/product</url-pattern>
 	</servlet-mapping>
 </web-app>
 
