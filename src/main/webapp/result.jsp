@@ -19,7 +19,9 @@
         <div class="col-lg-12 text-center v-center">
           <h1>Désolé, impossible de trouver le produit "${requestedProduct}" dans notre base de données.</h1>
           <br><br><br>
-          <span class="input-group-btn"><a href="<c:url value="home"/>" class="btn btn-lg btn-primary">Effectuer une autre recherche?</a></span>
+          <span class="input-group-btn">
+            <a href="<c:url value="home"/>" class="btn btn-lg btn-primary" style="border-radius: 6px;">Effectuer une autre recherche</a>
+          </span>
         </div>
       </div> <!-- /row -->
     </c:when>
@@ -27,9 +29,17 @@
       <div class="row">
         <div class="col-lg-12 text-center v-center">
           <h1>Le produit "${requestedProduct}" se trouve au rayon "${article.shelf.name}".</h1>
-          <p class="lead">Encore une victoire de canard!</p>
+          <div class="lead">
+            <img id="item-display" src="${article.picturelink}" alt="${article.name}"/>
+          </div>
           <br><br><br>
-          <span class="input-group-btn"><a href="<c:url value="home"/>" class="btn btn-lg btn-primary">Effectuer une autre recherche?</a></span>
+          <span class="input-group-btn">
+            <a href="<c:url value="product?id="/>${article.id}" class="btn btn-lg btn-success"
+               style="border-radius: 6px;border-top-right-radius: 0;border-bottom-right-radius: 0;">
+               Accéder à la fiche du produit
+            </a>
+            <a href="<c:url value="home"/>" class="btn btn-lg btn-primary">Effectuer une autre recherche</a>
+          </span>
         </div>
       </div> <!-- /row -->
     </c:otherwise>

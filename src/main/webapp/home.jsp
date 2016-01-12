@@ -20,21 +20,12 @@
         <br><br><br>
         <form name="searchProductForm" action="<c:url value="result"/>" class="col-lg-12" method="POST">
           <div class="input-group" style="width:640px;text-align:center;margin:0 auto;">
-            <input name="product" class="form-control input-lg" title="Type the product your looking for" placeholder="Entrez le produit dont vous cherchez le rayon" type="text">
-            <span class="input-group-btn"><input type="submit" value="Trouver le rayon" class="btn btn-lg btn-primary"></span>
+            <input name="product" class="form-control input-lg" title="Taper le nom du produit dont vous cherchez le rayon" placeholder="Entrez le produit dont vous cherchez le rayon" type="text">
+            <span class="input-group-btn"><input type="submit" value="Trouver le rayon correspondant" class="btn btn-lg btn-primary"></span>
           </div>
         </form>
       </div>
     </div> <!-- /row -->
-
-    <div class="row">
-      <div class="col-lg-12 text-center v-center" style="font-size:39pt;">
-        <a href="#"><i class="icon-google-plus"></i></a> <a href="#"><i class="icon-facebook"></i></a>  <a href="#"><i class="icon-twitter"></i></a> <a href="#"><i class="icon-github"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
-      </div>
-    </div>
-
-    <br><br><br><br><br>
-
   </div> <!-- /container full -->
 
 </body>
