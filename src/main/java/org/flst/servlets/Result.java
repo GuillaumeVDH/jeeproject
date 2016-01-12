@@ -33,8 +33,10 @@ public class Result extends HttpServlet {
         try {
             context = new InitialContext();
             articleServices = (ArticleServiceItf) context.lookup("java:global/ArticleService");
-
             article = articleServices.findArticleByName(requestedProduct);
+            request.setAttribute("article", article);
+            dispatcher.forward(request, response);
+
         } catch (NamingException e) {
             e.printStackTrace();
         } catch (ArticleException e) {
@@ -50,8 +52,6 @@ public class Result extends HttpServlet {
             }
         }
 
-        request.setAttribute("article", article);
-        dispatcher.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
