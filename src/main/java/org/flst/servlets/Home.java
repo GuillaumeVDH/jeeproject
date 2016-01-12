@@ -1,7 +1,9 @@
 package org.flst.servlets;
 
 import org.flst.entity.Article;
+import org.flst.entity.Shelf;
 import org.flst.services.ArticleServiceItf;
+import org.flst.services.ShelfServiceItf;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -27,18 +29,22 @@ public class Home extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 
         List<Article> articles = new ArrayList<>();
+        List<Shelf> shelfs = new ArrayList<>();
 
         try {
             Context context = new InitialContext();
 
             ArticleServiceItf articleServices = (ArticleServiceItf) context.lookup("java:global/ArticleService");
+            ShelfServiceItf shelfService = (ShelfServiceItf) context.lookup("java:global/ShelfService");
 
             articles = articleServices.findAll();
+            shelfs = shelfService.findAll();
         } catch (NamingException e) {
             e.printStackTrace();
         }
 
         request.setAttribute("articles", articles);
+        request.setAttribute("shelfs", shelfs);
         dispatcher.forward(request, response);
     }
 }

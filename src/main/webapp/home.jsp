@@ -13,6 +13,14 @@
     <title>Home page</title>
 </head>
 <body>
+    <form NAME="listShelfs">
+        <select NAME="shelfs" SIZE=1>
+                <c:forEach items="${shelfs}" var="shelfs">
+                    <option VALUE="${shelfs.id}">${shelfs.name}</option>
+                </c:forEach>
+        </select>
+    </form>
+    </div>
     <div class="row">
         <c:forEach items="${articles}" var="article">
             <div class="col-sm-6 col-md-4">
