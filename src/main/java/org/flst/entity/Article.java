@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "articles")
 @NamedQueries({
-        @NamedQuery(name = "findAll", query = "select a from Article a")
+    @NamedQuery(name = "findAll", query = "select a from Article a")
 })
 public class Article implements Serializable {
     @Id
