@@ -6,21 +6,26 @@ GRANT ALL ON jeeproject.* TO 'jeeproject'@'localhost' IDENTIFIED BY 'jeeproject'
 
 CREATE TABLE IF NOT EXISTS jeeproject.shelfs(
   id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(256),
   PRIMARY KEY (id)
 );
-
-ALTER IGNORE TABLE jeeproject.shelfs ADD COLUMN name VARCHAR(256);
 
 CREATE TABLE IF NOT EXISTS jeeproject.articles(
   id INT NOT NULL AUTO_INCREMENT,
   shelf INT NOT NULL,
+  prix INT NOT NULL,
+  picturelink VARCHAR(256),
+  brand VARCHAR(256),
+  name VARCHAR(256),
   PRIMARY KEY (id),
   FOREIGN KEY (shelf) REFERENCES jeeproject.shelfs(id) ON DELETE CASCADE
 );
 
-ALTER IGNORE TABLE jeeproject.articles ADD COLUMN name VARCHAR(256);
-
-INSERT INTO `jeeproject`.`shelfs` (`id`, `name`) VALUES ('', 'surgelés'), ('', 'fruits et légumes');
-INSERT INTO `jeeproject`.`articles` (`id`, `shelf`, `name`) VALUES ('', '1', 'steak'), ('', '1', 'petits poids');
-INSERT INTO `jeeproject`.`articles` (`id`, `shelf`, `name`) VALUES (NULL, '2', 'tomates'), (NULL, '2', 'bananes'), (NULL, '2', 'pommes');
+INSERT INTO `jeeproject`.`shelfs` (`id`, `name`) VALUES ('', 'fruits');
+INSERT INTO `jeeproject`.`shelfs` (`id`, `name`) VALUES ('', 'légumes');
+INSERT INTO `jeeproject`.`articles` (`id`, `shelf`, `name`, `prix`, `picturelink`, `brand`) VALUES ('', '1', 'Pommes de terre', '10', 'http://www.cnipt-pommesdeterre.com/wp-content/uploads/2013/09/agata.png', 'Bonduelle');
+INSERT INTO `jeeproject`.`articles` (`id`, `shelf`, `name`, `prix`, `picturelink`, `brand`) VALUES ('', '1', 'Petits pois', '3', 'http://www.fruitsdelaterre.com/1122-1473-large/petit-pois-frais-le-kg-espagne.jpg', 'Bonduelle');
+INSERT INTO `jeeproject`.`articles` (`id`, `shelf`, `name`, `prix`, `picturelink`, `brand`) VALUES ('', '2', 'Tomates', '1', 'https://inspirationsante.files.wordpress.com/2013/03/tomate1.jpg', 'Bonduelle');
+INSERT INTO `jeeproject`.`articles` (`id`, `shelf`, `name`, `prix`, `picturelink`, `brand`) VALUES ('', '2', 'Bananes', '2', 'http://www.jdbn.fr/wp-content/uploads/2014/11/arton80.jpg', 'Bonduelle');
+INSERT INTO `jeeproject`.`articles` (`id`, `shelf`, `name`, `prix`, `picturelink`, `brand`) VALUES ('', '2', 'Pommes', '5', 'https://www.santelog.com/uploaded3/images/Actus%2011/POMME%20VISUEL.jpg', 'Bonduelle');
 

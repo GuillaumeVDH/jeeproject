@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: guillaumevdh
@@ -17,8 +18,8 @@
         <c:forEach items="${articles}" var="article">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail" >
-                    <h4 class="text-center"><span class="label label-info">Rayon: ${article.shelf.name}</span></h4>
-                    <img src="http://placehold.it/650x450&text=Galaxy S5" class="img-responsive">
+                    <h4 class="text-center"><span class="label label-info">${article.brand}</span></h4>
+                    <img src="${article.picturelink}" class="img-responsive">
                     <div class="caption">
                         <div class="row">
                             <div class="col-md-6 col-xs-6">
@@ -26,7 +27,7 @@
                             </div>
                             <div class="col-md-6 col-xs-6 price">
                                 <h3>
-                                    <label>99.99 EUR</label></h3>
+                                    <label>${article.prix} EUR</label></h3>
                             </div>
                         </div>
                         <p>Id: ${article.id}</p>
