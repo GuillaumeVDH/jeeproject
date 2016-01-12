@@ -4,18 +4,17 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 	<display-name>Jeeproject</display-name>
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+		</jsp-property-group>
+	</jsp-config>
 	
 	<!-- La page d'accueil est index.jsp -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-
-	<!-- Déclaration de la Servlet Login -->
-	<servlet>
-		<servlet-name>Login</servlet-name>
-		<servlet-class>org.flst.servlets.Login</servlet-class>
-	</servlet>
-
 
 	<servlet>
 		<servlet-name>Home</servlet-name>
@@ -23,19 +22,35 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>Result</servlet-name>
+		<servlet-class>org.flst.servlets.Result</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Results</servlet-name>
+		<servlet-class>org.flst.servlets.Results</servlet-class>
+	</servlet>
+
+	<servlet>
 		<servlet-name>Product</servlet-name>
 		<servlet-class>org.flst.servlets.Product</servlet-class>
 	</servlet>
 
-	<!-- La Servlet Login est liée à l'url /, et donc à index.jsp qui est page d'accueil -->
+	<!-- La Servlet Home est liée à l'url /home -->
 	<servlet-mapping>
-		<servlet-name>Login</servlet-name>
+		<servlet-name>Home</servlet-name>
+		<url-pattern>/home</url-pattern>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
-		<servlet-name>Home</servlet-name>
-		<url-pattern>/home</url-pattern>
+		<servlet-name>Result</servlet-name>
+		<url-pattern>/result</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Results</servlet-name>
+		<url-pattern>/results</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>

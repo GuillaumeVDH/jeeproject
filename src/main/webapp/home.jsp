@@ -2,89 +2,39 @@
 <%--
   Created by IntelliJ IDEA.
   User: guillaumevdh
-  Date: 30/12/15
-  Time: 18:14
+  Date: 12/01/16
+  Time: 18:52
   To change this template use File | Settings | File Templates.
 --%>
 <%@include file="layout.jsp" %>
-
 <html>
 <head>
-    <title>Home page</title>
+  <title>Which shelf?</title>
 </head>
 <body>
-    <form name="listShelfs">
-        <select name="shelfs">
-                <c:forEach items="${shelfs}" var="shelfs">
-                    <option value="${shelfs.id}">${shelfs.name}</option>
-                </c:forEach>
-        </select>
-        <input type="submit" value="trier">
-    </form>
-    </div>
-   Contenu du rayon ayant l'id ${shelfParameter}
+  <div class="background container-full">
+    <div class="row">
+      <div class="col-lg-12 text-center v-center">
+        <h1>Bienvenue sur Which-Shelf</h1>
+        <p class="lead">Quel produit cherchez-vous?</p>
+        <br><br><br>
+        <form name="searchProductForm" action="<c:url value="result"/>" class="col-lg-12" method="POST">
+          <div class="input-group" style="width:640px;text-align:center;margin:0 auto;">
+            <input name="product" class="form-control input-lg" title="Type the product your looking for" placeholder="Entrez le produit dont vous cherchez le rayon" type="text">
+            <span class="input-group-btn"><input type="submit" value="Trouver le rayon" class="btn btn-lg btn-primary"></span>
+          </div>
+        </form>
+      </div>
+    </div> <!-- /row -->
 
     <div class="row">
-        <c:forEach items="${articles}" var="article">
-            <c:choose>
-                <c:when test="${empty shelfParameter}">
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail" >
-                            <h4 class="text-center"><span class="label label-info">${article.brand}</span></h4>
-                            <img src="${article.picturelink}" class="img-responsive">
-                            <div class="caption">
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-6">
-                                        <h3>${article.name}</h3>
-                                    </div>
-                                    <div class="col-md-6 col-xs-6 price">
-                                        <h3>
-                                            <label>${article.prix} EUR</label></h3>
-                                    </div>
-                                </div>
-                                <p>Id: ${article.id}</p>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <a class="btn btn-primary btn-product" href="<c:url value="product?id=${article.id}"/>">Fiche produit</a>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span>Acheter</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <c:if test="${article.shelf.id eq shelfParameter}">
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail" >
-                                <h4 class="text-center"><span class="label label-info">${article.brand}</span></h4>
-                                <img src="${article.picturelink}" class="img-responsive">
-                                <div class="caption">
-                                    <div class="row">
-                                        <div class="col-md-6 col-xs-6">
-                                            <h3>${article.name}</h3>
-                                        </div>
-                                        <div class="col-md-6 col-xs-6 price">
-                                            <h3>
-                                                <label>${article.prix} EUR</label></h3>
-                                        </div>
-                                    </div>
-                                    <p>Id: ${article.id}</p>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <a class="btn btn-primary btn-product" href="<c:url value="product?id=${article.id}"/>">Fiche produit</a>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span>Acheter</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </c:if>
-                </c:otherwise>
-            </c:choose>
-        </c:forEach>
+      <div class="col-lg-12 text-center v-center" style="font-size:39pt;">
+        <a href="#"><i class="icon-google-plus"></i></a> <a href="#"><i class="icon-facebook"></i></a>  <a href="#"><i class="icon-twitter"></i></a> <a href="#"><i class="icon-github"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
+      </div>
     </div>
+
+    <br><br><br><br><br>
+
+  </div> <!-- /container full -->
+
 </body>
-</html>

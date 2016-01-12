@@ -11,7 +11,7 @@
 <head>
   <title></title>
 </head>
-<body>
+<body class="background">
 <div class="container-fluid">
   <div class="content-wrapper">
     <div class="item-container">

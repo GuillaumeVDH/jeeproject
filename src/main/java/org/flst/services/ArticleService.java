@@ -1,6 +1,7 @@
 package org.flst.services;
 
 import org.flst.entity.Article;
+import org.flst.exceptions.ArticleException;
 
 import javax.annotation.sql.DataSourceDefinition;
 import javax.ejb.EJB;
@@ -30,6 +31,17 @@ public class ArticleService implements ArticleServiceItf {
     @Override
     public Article findArticleById(Integer id) {
         return em.find(Article.class, id);
+    }
+
+    @Override
+    public Article findArticleByName(String name) throws ArticleException {
+        List<Article> results = em.createQuery("SELECT DISTINCT a FROM Article a WHERE a.name = :name ")
+                                .setParameter("name", name).getResultList();
+        if(results.size() > 0)
+            return results.get(0);
+        else
+            throw new ArticleException( "[ArticleService] findArticleByName() - Aucun produit récupéré en base de données" +
+                                        " portant le nom de : " + name + ".");
     }
 //
 //    public List<Article> findByhelf(Shelf shelf) {
