@@ -10,6 +10,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by anthonycallaert on 21/12/2015.
@@ -43,16 +44,15 @@ public class ArticleService implements ArticleServiceItf {
             throw new ArticleException( "[ArticleService] findArticleByName() - Aucun produit récupéré en base de données" +
                                         " portant le nom de : " + name + ".");
     }
-//
-//    public List<Article> findByhelf(Shelf shelf) {
-//        return articleDAO.findByShelf(shelf);
-//    }
-//
-//    public String createArticle(String name){
-//        return articleDAO.createArticle(name);
-//    }
-//
-//    public void deleteArticle(Article article){
-//        articleDAO.deleteArticle(article);
-//    }
+
+    @Override
+    public List<Article> findArticlesByNameContaining(String name) throws ArticleException {
+        List<Article> results = em.createQuery("SELECT a FROM Article a WHERE a.name LIKE :parameter")
+                .setParameter("parameter", "%" + name + "%").getResultList();
+        if(results.size() > 0)
+            return results;
+        else
+            throw new ArticleException( "[ArticleService] findArticlesByNameContaining() - Aucun produits récupérés en base de données" +
+                    " contenant: " + name + ".");
+    }
 }

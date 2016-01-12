@@ -14,15 +14,15 @@
 </head>
 <body class="background">
     <div class="container-fluid">
-        <form name="listShelfs">
-            <select name="shelfs">
-                <c:forEach items="${shelfs}" var="shelfs">
-                    <option value="${shelfs.id}">${shelfs.name}</option>
-                </c:forEach>
-            </select>
-            <input type="submit" value="trier">
-        </form>
-        Contenu du rayon ayant l'id ${shelfParameter}
+        <%--<form name="listShelfs">--%>
+            <%--<select name="shelfs">--%>
+                <%--<c:forEach items="${shelfs}" var="shelfs">--%>
+                    <%--<option value="${shelfs.id}">${shelfs.name}</option>--%>
+                <%--</c:forEach>--%>
+            <%--</select>--%>
+            <%--<input type="submit" value="trier">--%>
+        <%--</form>--%>
+        <%--Contenu du rayon ayant l'id ${shelfParameter}--%>
 
         <div class="row">
             <c:forEach items="${articles}" var="article">
@@ -30,7 +30,7 @@
                     <c:when test="${empty shelfParameter}">
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail" >
-                                <h4 class="text-center"><span class="label label-info">${article.brand}</span></h4>
+                                <h4 class="text-center"><span class="label label-info">Rayon: ${article.shelf.name}</span></h4>
                                 <img src="${article.picturelink}" class="img-responsive">
                                 <div class="caption">
                                     <div class="row">

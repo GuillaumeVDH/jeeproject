@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-lg-12 text-center v-center">
         <h1>Bienvenue sur Which-Shelf</h1>
-        <p class="lead">Quel produit cherchez-vous?</p>
+        <p class="lead">Retrouvez dans quels rayons sont rangés vos produits!</p>
         <br><br><br>
         <form name="searchProductForm" action="<c:url value="result"/>" class="col-lg-12" method="POST">
           <div class="input-group" style="width:640px;text-align:center;margin:0 auto;">

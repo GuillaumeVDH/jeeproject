@@ -5,6 +5,7 @@ import org.flst.exceptions.ArticleException;
 
 import javax.ejb.Remote;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by guillaumevdh on 06/01/16.
@@ -16,4 +17,6 @@ public interface ArticleServiceItf {
     Article findArticleById(Integer id);
 
     Article findArticleByName(String name) throws ArticleException;
+
+    List<Article> findArticlesByNameContaining(String name) throws ArticleException;
 }

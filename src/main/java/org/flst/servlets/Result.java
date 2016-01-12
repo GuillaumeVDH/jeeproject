@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by guillaumevdh on 12/01/16.
@@ -26,17 +28,26 @@ public class Result extends HttpServlet {
         Article article = new Article();
         String requestedProduct = request.getParameter("product");
         request.setAttribute("requestedProduct", requestedProduct);
+        Context context = null;
+        ArticleServiceItf articleServices = null;
         try {
-            Context context = new InitialContext();
-
-            ArticleServiceItf articleServices = (ArticleServiceItf) context.lookup("java:global/ArticleService");
+            context = new InitialContext();
+            articleServices = (ArticleServiceItf) context.lookup("java:global/ArticleService");
 
             article = articleServices.findArticleByName(requestedProduct);
-        } catch (ArticleException e) {
-            request.setAttribute("articleException", e);
-            dispatcher.forward(request, response);
         } catch (NamingException e) {
             e.printStackTrace();
+        } catch (ArticleException e) {
+            //We didn't catch any product! Let's try to find similiars
+            try {
+                List<Article> articles = articleServices.findArticlesByNameContaining(requestedProduct);
+                request.setAttribute("articles", articles);
+                dispatcher = request.getRequestDispatcher("results.jsp");
+                dispatcher.forward(request, response);
+            } catch(ArticleException eFindArticlesByNameContaining) {
+                request.setAttribute("articleException", eFindArticlesByNameContaining);
+                dispatcher.forward(request, response);
+            }
         }
 
         request.setAttribute("article", article);
