@@ -28,6 +28,8 @@ public class Home extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 
+        String shelfParameter = request.getParameter("shelfs");
+
         List<Article> articles = new ArrayList<>();
         List<Shelf> shelfs = new ArrayList<>();
 
@@ -45,6 +47,7 @@ public class Home extends HttpServlet {
 
         request.setAttribute("articles", articles);
         request.setAttribute("shelfs", shelfs);
+        request.setAttribute("shelfParameter", shelfParameter);
         dispatcher.forward(request, response);
     }
 }
