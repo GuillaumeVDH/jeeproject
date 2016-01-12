@@ -13,6 +13,13 @@
     <title>Home page</title>
 </head>
 <body class="background">
+    <div class="container-fluid" style="padding-bottom: 40px;">
+        <div class="col-lg-12 text-center v-center">
+              <span class="input-group-btn">
+                <a href="<c:url value="home"/>" class="btn btn-lg btn-primary" style="border-radius: 6px;">Effectuer une nouvelle recherche</a>
+              </span>
+        </div>
+    </div> <!-- /row -->
     <div class="container-fluid">
         <%--<form name="listShelfs">--%>
             <%--<select name="shelfs">--%>
