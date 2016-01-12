@@ -21,7 +21,7 @@
         <form name="searchProductForm" action="<c:url value="result"/>" class="col-lg-12" method="POST">
           <div class="input-group" style="width:640px;text-align:center;margin:0 auto;">
             <input name="product" class="form-control input-lg" title="Taper le nom du produit dont vous cherchez le rayon" placeholder="Entrez le produit dont vous cherchez le rayon" type="text">
-            <span class="input-group-btn"><input type="submit" value="Trouver le rayon correspondant" class="btn btn-lg btn-primary"></span>
+            <span class="input-group-btn"><input type="submit" value="Trouver le rayon" class="btn btn-lg btn-primary"></span>
           </div>
         </form>
       </div>
