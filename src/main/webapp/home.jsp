@@ -26,6 +26,14 @@
         </form>
       </div>
     </div> <!-- /row -->
+    <div class="col-lg-12">
+      <div class="container-fluid">
+        <center>
+          <br><br><br>
+            <span><a href="#" class="lead" style="text-decoration: underline;">Ou parcourir les rayons</a></span>
+        </center>
+      </div>
+    </div>
   </div> <!-- /container full -->
 
 </body>
