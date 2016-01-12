@@ -1,5 +1,7 @@
 package org.flst;
 
+import org.flst.services.ArticleService;
+import org.flst.services.ArticleServiceItf;
 import org.flst.services.ShelfRestService;
 
 import javax.ws.rs.ApplicationPath;

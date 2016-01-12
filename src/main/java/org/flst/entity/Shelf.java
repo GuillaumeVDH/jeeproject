@@ -2,6 +2,7 @@ package org.flst.entity;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
 @Table(name = "shelfs")
 @XmlRootElement
 @NamedQuery(name = Shelf.FIND_ALL, query = "SELECT s FROM Shelf s")
-public class Shelf {
+public class Shelf implements Serializable {
 
     public static final String FIND_ALL = "Shelf.findAll";
 

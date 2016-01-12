@@ -5,14 +5,15 @@
     
 	<persistence-unit name="jeeproject" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <jta-data-source>jdbc/__default</jta-data-source>
 
         <class>org.flst.entity.Article</class>
 
-        <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/wichshelf" />
-            <property name="javax.persistence.jdbc.user" value="jeeproject" />
-            <property name="javax.persistence.jdbc.password" value="jeeproject" />
-        </properties>
+        <!--<properties>-->
+            <!--<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />-->
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/jeeproject" />-->
+            <!--<property name="javax.persistence.jdbc.user" value="jeeproject" />-->
+            <!--<property name="javax.persistence.jdbc.password" value="jeeproject" />-->
+        <!--</properties>-->
     </persistence-unit>
 </persistence>

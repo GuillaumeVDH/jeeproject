@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ public class Home extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 
-//        List<Article> articles = new ArrayList<>();
+        List<Article> articles = new ArrayList<>();
 
         try {
             Context context = new InitialContext();
@@ -34,7 +35,7 @@ public class Home extends HttpServlet {
 //            ArticleServiceItf articleServices = (ArticleServiceItf) context.lookup("java:global/jeeproject_EJB/ArticleService");
             ArticleServiceItf articleServices = (ArticleServiceItf) context.lookup("java:global/ArticleService");
 
-            List<Article> articles = articleServices.findAll();
+            articles = articleServices.findAll();
             System.out.println("SIZE OF THE LIST: " + articles.size());
 
         } catch (NamingException e) {
@@ -55,7 +56,7 @@ public class Home extends HttpServlet {
 //        articles = articleServices.findAll();
 //        System.out.println("SIZE OF THE LIST: " + articles.size());
 
-//        request.setAttribute("articles", articles);
+        request.setAttribute("articles", articles);
         dispatcher.forward(request, response);
     }
 }

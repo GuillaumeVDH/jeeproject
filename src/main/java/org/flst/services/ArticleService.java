@@ -2,6 +2,7 @@ package org.flst.services;
 
 import org.flst.entity.Article;
 
+import javax.annotation.sql.DataSourceDefinition;
 import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;

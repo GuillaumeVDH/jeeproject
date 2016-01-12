@@ -11,7 +11,7 @@ import java.io.Serializable;
 @NamedQueries({
         @NamedQuery(name = "findAll", query = "select a from Article a")
 })
-public class Article implements  Serializable {
+public class Article implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -20,7 +20,7 @@ public class Article implements  Serializable {
     @Column(name="name")
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "shelf")
     private Shelf shelf;
 
