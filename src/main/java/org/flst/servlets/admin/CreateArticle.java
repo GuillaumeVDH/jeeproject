@@ -32,43 +32,58 @@ public class CreateArticle extends HttpServlet {
 
         Article article = new Article();
         Shelf shelf = new Shelf();
+        List<Shelf> shelfs = new ArrayList<>();
         Context context = null;
         ArticleServiceItf articleServices = null;
         ShelfServiceItf shelfService = null;
 
-        article.setName(request.getParameter("productName"));
-        article.setPicturelink(request.getParameter("productImage"));
-        article.setBrand(request.getParameter("productBrand"));
-        article.setPrix(Float.valueOf(request.getParameter("productPrice")));
         try {
             context = new InitialContext();
             shelfService = (ShelfServiceItf) context.lookup("java:global/ShelfService");
-//            shelf = shelfService.findShelfById(Integer.valueOf(request.getParameter("productShelf")));
-            shelf = shelfService.findShelfById(1);
+            shelf = shelfService.findShelfById(Integer.valueOf(request.getParameter("productShelf")));
+            shelfs = shelfService.findAll();
+
+            article.setName(request.getParameter("productName"));
+            article.setPicturelink(request.getParameter("productImage"));
+            article.setBrand(request.getParameter("productBrand"));
+            article.setPrix(Float.valueOf(request.getParameter("productPrice")));
             article.setShelf(shelf);
 
             articleServices = (ArticleServiceItf) context.lookup("java:global/ArticleService");
-        } catch (NamingException e1) {
-            e1.printStackTrace();
+        } catch (Exception e) {
+            dispatcher = request.getRequestDispatcher("errors/error-article-creation.jsp");
+            request.setAttribute("error", e);
+            dispatcher.forward(request, response);
         }
 
+        //On utilise un Validator afin de vérifier que notre objet Article est en phase avec les contraintes
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<Article>> constraintViolationSet = validator.validate(article);
+
         if(constraintViolationSet.isEmpty()) {
-            System.out.println("VALIDATION SUCCEED!");
+        //Pas d'erreurs après vérification, on peut persister l'objet
             try {
                 articleServices.addArticle(article);
             } catch (ArticleException e) {
-                e.printStackTrace();
+                dispatcher = request.getRequestDispatcher("errors/error-article-creation.jsp");
+                request.setAttribute("error", e);
+                dispatcher.forward(request, response);
             }
         }
-        else
-            System.out.println("VALIDATION FAILED!");
+        else {
+        //Une ou plusieurs erreurs pendant la vérification. On informe l'utilisateur
+
+
+            dispatcher = request.getRequestDispatcher("admin/create-article.jsp");
+            request.setAttribute("errors", constraintViolationSet);
+            request.setAttribute("shelfs", shelfs);
+            dispatcher.forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/createarticle.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/create-article.jsp");
         List<Shelf> shelfs = new ArrayList<>();
         ShelfServiceItf shelfService = null;
         Context context = null;
