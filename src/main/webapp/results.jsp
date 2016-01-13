@@ -21,15 +21,20 @@
         </div>
     </div> <!-- /row -->
     <div class="container-fluid">
-        <%--<form name="listShelfs">--%>
-            <%--<select name="shelfs">--%>
-                <%--<c:forEach items="${shelfs}" var="shelfs">--%>
-                    <%--<option value="${shelfs.id}">${shelfs.name}</option>--%>
-                <%--</c:forEach>--%>
-            <%--</select>--%>
-            <%--<input type="submit" value="trier">--%>
-        <%--</form>--%>
-        <%--Contenu du rayon ayant l'id ${shelfParameter}--%>
+        <c:if test="${not empty shelfs}">
+            <form name="listShelfs" class="form-inline">
+                <div class="input-group" style="width:100%;">
+                    <select name="shelfs" class="form-control">
+                        <c:forEach items="${shelfs}" var="shelfs">
+                            <option value="${shelfs.id}">${shelfs.name}</option>
+                        </c:forEach>
+                    </select>
+                    <span class="input-group-btn" style="width: 1px;">
+                        <input type="submit" value="trier" class="btn btn-default">
+                    </span>
+                </div>
+            </form>
+        </c:if>
 
         <div class="row">
             <c:forEach items="${articles}" var="article">
