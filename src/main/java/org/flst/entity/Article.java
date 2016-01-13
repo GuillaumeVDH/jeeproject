@@ -31,7 +31,7 @@ public class Article implements Serializable {
     @Column(name="prix")
     @DecimalMin("00.01")
     @NotNull
-    private int prix;
+    private float prix;
 
     @Column(name="picturelink")
     @NotNull
@@ -65,11 +65,11 @@ public class Article implements Serializable {
 
     @Basic
     @Column(name = "prix")
-    public int getPrix() {
+    public float getPrix() {
         return prix;
     }
 
-    public void setPrix(int prix) {
+    public void setPrix(float prix) {
         this.prix = prix;
     }
 
