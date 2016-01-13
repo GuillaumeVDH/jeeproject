@@ -1,6 +1,8 @@
 package org.flst.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.List;
@@ -22,6 +24,8 @@ public class Shelf implements Serializable {
     private Integer id;
 
     @Column(name = "name")
+    @NotNull
+    @Size(min=1,max=100)
     private String name;
 
     @OneToMany(mappedBy = "shelf")

@@ -3,14 +3,12 @@ package org.flst.services;
 import org.flst.entity.Article;
 import org.flst.exceptions.ArticleException;
 
-import javax.annotation.sql.DataSourceDefinition;
 import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by anthonycallaert on 21/12/2015.
