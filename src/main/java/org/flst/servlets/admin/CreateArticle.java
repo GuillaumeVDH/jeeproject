@@ -51,7 +51,7 @@ public class CreateArticle extends HttpServlet {
 
             articleServices = (ArticleServiceItf) context.lookup("java:global/ArticleService");
         } catch (Exception e) {
-            dispatcher = request.getRequestDispatcher("errors/error-article-creation.jsp");
+            dispatcher = request.getRequestDispatcher("article/create/error.jsp");
             request.setAttribute("error", e);
             dispatcher.forward(request, response);
         }
@@ -65,16 +65,16 @@ public class CreateArticle extends HttpServlet {
         //Pas d'erreurs après vérification, on peut persister l'objet
             try {
                 articleServices.addArticle(article);
+                dispatcher = request.getRequestDispatcher("article/create/success.jsp");
+                dispatcher.forward(request, response);
             } catch (ArticleException e) {
-                dispatcher = request.getRequestDispatcher("errors/error-article-creation.jsp");
+                dispatcher = request.getRequestDispatcher("article/create/error.jsp");
                 request.setAttribute("error", e);
                 dispatcher.forward(request, response);
             }
         }
         else {
         //Une ou plusieurs erreurs pendant la vérification. On informe l'utilisateur
-
-
             dispatcher = request.getRequestDispatcher("admin/create-article.jsp");
             request.setAttribute("errors", constraintViolationSet);
             request.setAttribute("shelfs", shelfs);

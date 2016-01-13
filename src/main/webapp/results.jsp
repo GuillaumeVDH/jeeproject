@@ -19,7 +19,7 @@
                 <a href="<c:url value="home"/>" class="btn btn-lg btn-primary" style="border-radius: 6px;">Effectuer une nouvelle recherche</a>
               </span>
         </div>
-    </div> <!-- /row -->
+    </div>
     <div class="container-fluid">
         <c:if test="${not empty shelfs}">
             <form name="listShelfs" class="form-inline">

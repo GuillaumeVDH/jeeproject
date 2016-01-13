@@ -6,7 +6,7 @@
   Time: 15:00
   To change this template use File | Settings | File Templates.
 --%>
-<%@include file="../layout.jsp" %>
+<%@include file="../../layout.jsp" %>
 <html>
 <head>
   <title>Impossible de créer l'article</title>
