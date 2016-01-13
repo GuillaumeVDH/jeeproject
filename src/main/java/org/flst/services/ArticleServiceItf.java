@@ -5,7 +5,6 @@ import org.flst.exceptions.ArticleException;
 
 import javax.ejb.Remote;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by guillaumevdh on 06/01/16.

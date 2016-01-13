@@ -1,6 +1,7 @@
 package org.flst.services;
 
 import org.flst.entity.Shelf;
+import org.flst.exceptions.ShelfException;
 
 import javax.ejb.Remote;
 import java.util.List;
@@ -13,4 +14,6 @@ import java.util.List;
 public interface ShelfServiceItf {
     List<Shelf> findAll();
     Shelf findShelfById(Integer id);
+
+    void addShelf(Shelf shelf) throws ShelfException;
 }

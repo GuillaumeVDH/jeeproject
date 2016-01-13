@@ -36,6 +36,10 @@
 		<servlet-class>org.flst.servlets.admin.CreateArticle</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>CreateShelf</servlet-name>
+		<servlet-class>org.flst.servlets.admin.CreateShelf</servlet-class>
+	</servlet>
 	<!-- La Servlet Home est liée à l'url /home -->
 	<servlet-mapping>
 		<servlet-name>Home</servlet-name>
@@ -56,6 +60,11 @@
 	<servlet-mapping>
 		<servlet-name>CreateArticle</servlet-name>
 		<url-pattern>/admin-create-article</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>CreateShelf</servlet-name>
+		<url-pattern>/admin-create-shelf</url-pattern>
 	</servlet-mapping>
 </web-app>
 

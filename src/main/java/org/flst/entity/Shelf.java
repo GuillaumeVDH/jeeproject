@@ -19,7 +19,7 @@ public class Shelf implements Serializable {
     public static final String FIND_ALL = "Shelf.findAll";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
