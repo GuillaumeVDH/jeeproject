@@ -45,13 +45,6 @@ public class Result extends HttpServlet {
         } catch (ArticleException e) {
             //We didn't catch any product! Let's try to find similiars
             try {
-//                try {
-//                    shelfService = (ShelfServiceItf) context.lookup("java:global/ShelfService");
-//                    shelfs = shelfService.findAll();
-//                    request.setAttribute("shelfs", shelfs);
-//                } catch (NamingException e1) {
-//                    e1.printStackTrace();
-//                }
                 List<Article> articles = articleServices.findArticlesByNameContaining(requestedProduct);
                 request.setAttribute("articles", articles);
                 dispatcher = request.getRequestDispatcher("results.jsp");
