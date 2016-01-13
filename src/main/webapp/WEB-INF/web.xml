@@ -31,6 +31,11 @@
 		<servlet-class>org.flst.servlets.Product</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>CreateArticle</servlet-name>
+		<servlet-class>org.flst.servlets.admin.CreateArticle</servlet-class>
+	</servlet>
+
 	<!-- La Servlet Home est liée à l'url /home -->
 	<servlet-mapping>
 		<servlet-name>Home</servlet-name>
@@ -46,6 +51,11 @@
 	<servlet-mapping>
 		<servlet-name>Product</servlet-name>
 		<url-pattern>/product</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>CreateArticle</servlet-name>
+		<url-pattern>/admin-create-article</url-pattern>
 	</servlet-mapping>
 </web-app>
 

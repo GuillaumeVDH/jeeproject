@@ -53,4 +53,13 @@ public class ArticleService implements ArticleServiceItf {
             throw new ArticleException( "[ArticleService] findArticlesByNameContaining() - Aucun produits récupérés en base de données" +
                     " contenant: " + name + ".");
     }
+
+    @Override
+    public void addArticle(Article article) throws ArticleException {
+        try {
+            em.persist(article);
+        } catch (Exception e) {
+            throw  new ArticleException("Impossible d'enregistrer l'article en base de données. " + e.getMessage());
+        }
+    }
 }

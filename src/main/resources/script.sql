@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS jeeproject.shelfs(
 CREATE TABLE IF NOT EXISTS jeeproject.articles(
   id INT NOT NULL AUTO_INCREMENT,
   shelf INT NOT NULL,
-  prix INT NOT NULL,
+  prix FLOAT(7,2) NOT NULL,
   picturelink VARCHAR(256),
   brand VARCHAR(256),
   name VARCHAR(256),

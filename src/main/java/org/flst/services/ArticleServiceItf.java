@@ -19,4 +19,6 @@ public interface ArticleServiceItf {
     Article findArticleByName(String name) throws ArticleException;
 
     List<Article> findArticlesByNameContaining(String name) throws ArticleException;
+
+    void addArticle(Article article) throws ArticleException;
 }
