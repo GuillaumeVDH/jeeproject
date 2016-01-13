@@ -1,7 +1,5 @@
 package org.flst;
 
-import org.flst.services.ShelfRestService;
-
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.ext.MessageBodyReader;
@@ -20,7 +18,6 @@ public class ApplicationConfig extends Application {
 
     public ApplicationConfig() {
         HashSet<Class<?>> c = new HashSet<>();
-        c.add(ShelfRestService.class);
 
         c.add(MessageBodyReader.class);
         c.add(MessageBodyWriter.class);
