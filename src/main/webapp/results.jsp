@@ -41,7 +41,7 @@
                 <c:choose>
                     <c:when test="${empty shelfParameter}">
                         <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail" >
+                            <div class="thumbnail" style="min-height: 470px;">
                                 <h4 class="text-center"><span class="label label-info">Rayon: ${article.shelf.name}</span></h4>
                                 <img src="${article.picturelink}" class="img-responsive">
                                 <div class="caption">
@@ -56,11 +56,9 @@
                                     </div>
                                     <p>Id: ${article.id}</p>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-offset-5 col-md-7">
                                             <a class="btn btn-primary btn-product" href="<c:url value="product?id=${article.id}"/>">Fiche produit</a>
                                         </div>
-                                        <div class="col-md-6">
-                                            <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span>Acheter</a></div>
                                     </div>
                                 </div>
                             </div>

@@ -24,8 +24,8 @@
           <c:if test="${error.getPropertyPath() eq 'brand'}">
             <c:set var="errorBrand" scope="session" value="${error.getMessage()}"/>
           </c:if>
-          <c:if test="${error.getPropertyPath() eq 'pictureLink'}">
-            <c:set var="errorPictureLink" scope="session" value="${error.getMessage()}"/>
+          <c:if test="${error.getPropertyPath() eq 'picturelink'}">
+            <c:set var="errorPicturelink" scope="session" value="${error.getMessage()}"/>
           </c:if>
           <c:if test="${error.getPropertyPath() eq 'prix'}">
             <c:set var="errorPrix" scope="session" value="${error.getMessage()}"/>
@@ -44,7 +44,7 @@
           <input name="productBrand" class="form-control input-md" title="" placeholder="Entrez la marque" type="text">
           <c:if test="${not empty errorBrand}"><p>${errorBrand}</p></c:if>
           <input name="productImage" class="form-control input-md" title="" placeholder="Entrez l'url vers l'image produit" type="text">
-          <c:if test="${not empty errorPictureLink}"><p>${errorPictureLink}</p></c:if>
+          <c:if test="${not empty errorPicturelink}"><p>${errorPicturelink}</p></c:if>
           <input name="productPrice" class="form-control input-md" title="" placeholder="Prix" type="number" step="0.01">
           <c:if test="${not empty errorPrix}"><p>${errorPrix}</p></c:if>
 
@@ -58,7 +58,7 @@
           <c:if test="${not empty errorShelf}"><p>${errorShelf}</p></c:if>
         </div>
         <span class="input-group-btn">
-          <input type="submit" value="Créer le produit" class="btn btn-lg btn-primary">
+          <input type="submit" value="Créer le produit" class="btn btn-lg btn-primary" style="border-radius: 6px; margin-top: 20px;">
         </span>
       </form>
     </div>

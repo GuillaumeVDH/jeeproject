@@ -28,7 +28,7 @@ import java.util.Set;
  */
 public class CreateArticle extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("result.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("article/create/success.jsp");
 
         Article article = new Article();
         Shelf shelf = new Shelf();
@@ -48,7 +48,7 @@ public class CreateArticle extends HttpServlet {
             article.setBrand(request.getParameter("productBrand"));
             article.setPrix(Float.valueOf(request.getParameter("productPrice")));
             article.setShelf(shelf);
-
+            System.out.println("DEBUG productBrand set to: " + request.getParameter("productBrand"));
             articleServices = (ArticleServiceItf) context.lookup("java:global/ArticleService");
         } catch (Exception e) {
             dispatcher = request.getRequestDispatcher("article/create/error.jsp");
@@ -65,7 +65,6 @@ public class CreateArticle extends HttpServlet {
         //Pas d'erreurs après vérification, on peut persister l'objet
             try {
                 articleServices.addArticle(article);
-                dispatcher = request.getRequestDispatcher("article/create/success.jsp");
                 dispatcher.forward(request, response);
             } catch (ArticleException e) {
                 dispatcher = request.getRequestDispatcher("article/create/error.jsp");

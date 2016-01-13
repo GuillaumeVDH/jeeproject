@@ -31,11 +31,6 @@
               <div class="product-price">${article.prix} EUR</div>
               <div class="product-stock">In Stock</div>
               <hr>
-              <div class="btn-group cart">
-                <button type="button" class="btn btn-success">
-                  Acheter
-                </button>
-              </div>
             </div>
           </div>
         </div>

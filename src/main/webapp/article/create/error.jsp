@@ -30,7 +30,8 @@
              style="border-radius: 6px;border-top-right-radius: 0;border-bottom-right-radius: 0;">
             Retourner sur la page d'accueil
           </a>
-          <a href="<c:url value="admin-create-article"/>" class="btn btn-lg btn-primary">Retourner à la création d'article</a>
+          <a href="<c:url value="admin-create-article"/>" class="btn btn-lg btn-primary"
+             style="border-radius: 6px;border-bottom-left-radius: 0;border-top-left-radius: 0;">Retourner à la création d'article</a>
         </span>
       </center>
     </div>
