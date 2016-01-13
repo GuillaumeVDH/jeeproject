@@ -27,11 +27,6 @@
 	</servlet>
 
 	<servlet>
-		<servlet-name>Results</servlet-name>
-		<servlet-class>org.flst.servlets.Results</servlet-class>
-	</servlet>
-
-	<servlet>
 		<servlet-name>Product</servlet-name>
 		<servlet-class>org.flst.servlets.Product</servlet-class>
 	</servlet>
@@ -46,11 +41,6 @@
 	<servlet-mapping>
 		<servlet-name>Result</servlet-name>
 		<url-pattern>/result</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>Results</servlet-name>
-		<url-pattern>/results</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>

@@ -30,7 +30,7 @@
       <div class="container-fluid">
         <center>
           <br><br><br>
-            <span><a href="#" class="lead" style="text-decoration: underline; color: #DDCCEE;">Ou parcourir les rayons</a></span>
+            <span><a href="<c:url value="result"/>" class="lead" style="text-decoration: underline; color: #DDCCEE;">Ou parcourir les rayons</a></span>
         </center>
       </div>
     </div>
