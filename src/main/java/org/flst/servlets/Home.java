@@ -15,6 +15,13 @@ public class Home extends HttpServlet {
 
     }
 
+    /**
+     * Redirect to the home JSP
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
         dispatcher.forward(request, response);

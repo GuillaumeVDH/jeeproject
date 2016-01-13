@@ -27,6 +27,15 @@ import java.util.Set;
  * Created by guillaumevdh on 13/01/16.
  */
 public class CreateArticle extends HttpServlet {
+    /**
+     * Retrieve datas from a creation FORM, validate the Article being created and persist it into the database.
+     * If error(s) happened user will be informed on the form if something goes wrong with the Bean Validation or on an error
+     * page otherwise.
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("article/create/success.jsp");
 
@@ -81,6 +90,13 @@ public class CreateArticle extends HttpServlet {
         }
     }
 
+    /**
+     * Redirect to the create-article JSP and provide the Shelfs list from our service.
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin/create-article.jsp");
         List<Shelf> shelfs = new ArrayList<>();

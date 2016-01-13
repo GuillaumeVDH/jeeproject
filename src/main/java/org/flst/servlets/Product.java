@@ -21,6 +21,13 @@ public class Product extends HttpServlet {
 
     }
 
+    /**
+     * Return a specific product (using the id passed in parameter) to the product JSP
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("product.jsp");
 
@@ -28,7 +35,6 @@ public class Product extends HttpServlet {
 
         try {
             Context context = new InitialContext();
-
             ArticleServiceItf articleServices = (ArticleServiceItf) context.lookup("java:global/ArticleService");
 
             article = articleServices.findArticleById(Integer.valueOf(request.getParameter("id")));
