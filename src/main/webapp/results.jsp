@@ -26,7 +26,14 @@
                 <div class="input-group" style="width:100%;">
                     <select name="shelfs" class="form-control">
                         <c:forEach items="${shelfs}" var="shelfs">
-                            <option value="${shelfs.id}">${shelfs.name}</option>
+                            <c:choose>
+                                <c:when test="${shelfs.id eq shelfParameter }">
+                                    <option value="${shelfs.id}" selected>${shelfs.name}</option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${shelfs.id}">${shelfs.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                     <span class="input-group-btn" style="width: 1px;">
